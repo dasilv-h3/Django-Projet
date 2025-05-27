@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ film.title }}{% endblock %}
+
+{% block content %}
+    <h2 class="text-3xl font-bold mb-4">{{ film.title }}</h2>
+
+    <p class="mb-8 text-gray-700">{{ film.description }}</p>
+
+    <h3 class="text-xl font-semibold mb-3">Acteurs</h3>
+    <ul class="list-disc pl-5 space-y-2">
+        {% for actor in actors %}
+            <li>{{ actor.first_name }} {{ actor.last_name }}</li>
+        {% empty %}
+            <li class="italic text-gray-600">Pas d'acteurs liés à ce film.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

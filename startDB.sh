@@ -1,0 +1,1 @@
+../django_projet/../../../Scripts/DBstart.sh start

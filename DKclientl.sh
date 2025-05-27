@@ -1,0 +1,1 @@
+docker exec -it mysql mysql -uroot -pHitema2025 -Dsakila

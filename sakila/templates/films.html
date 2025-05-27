@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Films{% endblock %}
+
+{% block content %}
+    <h2 class="text-2xl font-semibold mb-4">Films</h2>
+
+    <form method="get" class="mb-6 flex gap-2">
+        <input type="text" name="q" placeholder="Rechercher un film..."
+            value="{{ query }}"
+            class="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button type="submit"
+                class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+            Rechercher
+        </button>
+    </form>
+
+    <ul class="space-y-3">
+        {% for film in films %}
+            <li>
+                <a href="{% url 'film_detail' film.film_id %}"
+                    class="text-lg text-blue-600 hover:underline">
+                    {{ film.title }}
+                </a>
+            </li>
+        {% empty %}
+            <li class="text-gray-600 italic">Aucun film trouvé.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

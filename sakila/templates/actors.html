@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Acteurs{% endblock %}
+
+{% block content %}
+    <h2 class="text-2xl font-semibold mb-4">Acteurs</h2>
+
+    <form method="get" class="mb-6 flex gap-2">
+        <input type="text" name="q" placeholder="Rechercher un acteur..."
+            value="{{ query }}"
+            class="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button type="submit"
+                class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+            Rechercher
+        </button>
+    </form>
+
+    <ul class="space-y-3">
+        {% for actor in actors %}
+            <li class="text-lg">
+                {{ actor.first_name }} {{ actor.last_name }}
+            </li>
+        {% empty %}
+            <li class="text-gray-600 italic">Aucun acteur trouvé.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
